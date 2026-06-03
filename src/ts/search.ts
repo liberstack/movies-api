@@ -1,5 +1,5 @@
-import { openModal, closeModal } from "../core/modal.js";
-import type { OMDbDetail, OMDbSearchResponse } from "../core/types.js";
+import { openModal } from "./modal.js";
+import type { OMDbDetail, OMDbSearchResponse } from "./types.js";
 
 // ─── Constants ────────────────────────────────────────────
 
@@ -282,12 +282,6 @@ export function renderSearch(app: HTMLElement): void {
           <ul id="results"></ul>
         </div>
       </div>
-
-      <div id="details-section" class="details-panel hidden">
-        <div class="details-placeholder">Select a film to view details.</div>
-        <button id="close-details">&#x2715;</button>
-        <div id="movie-details"></div>
-      </div>
     </div>
   `;
 
@@ -296,7 +290,6 @@ export function renderSearch(app: HTMLElement): void {
   const genreEl     = document.getElementById("genre-filter")   as HTMLSelectElement;
   const countryEl   = document.getElementById("country-filter") as HTMLSelectElement;
   const btnSearch   = document.getElementById("btn-search")     as HTMLButtonElement;
-  const closeBtn    = document.getElementById("close-details")  as HTMLButtonElement;
 
   function doSearch(): void {
     const titleQ   = searchInput.value.trim();
@@ -305,7 +298,7 @@ export function renderSearch(app: HTMLElement): void {
     const countryQ = countryEl.value;
 
     if (!titleQ) {
-      const statusEl     = document.getElementById("status-msg") as HTMLDivElement;
+      const statusEl       = document.getElementById("status-msg") as HTMLDivElement;
       statusEl.textContent = "Enter a title to search.";
       statusEl.className   = "error";
       return;
@@ -315,9 +308,4 @@ export function renderSearch(app: HTMLElement): void {
 
   btnSearch.addEventListener("click", doSearch);
   searchInput.addEventListener("keydown", e => { if (e.key === "Enter") doSearch(); });
-
-  closeBtn.addEventListener("click", () => {
-    (document.getElementById("details-section") as HTMLDivElement).classList.add("hidden");
-    closeModal();
-  });
 }

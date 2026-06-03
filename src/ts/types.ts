@@ -25,6 +25,7 @@ export type OMDbDetail = {
   Awards:     string;
   BoxOffice?: string;
   imdbRating: string;
+  imdbID:     string;
   Poster?:    string;
   Ratings:    Array<{ Source: string; Value: string }>;
   Response:   string;
