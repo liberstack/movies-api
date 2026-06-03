@@ -32,6 +32,7 @@ jobs:
           cp -r dist deploy/
           cp -r src deploy/
           cp index.html deploy/
+          cp style.css deploy/
           cp package.json deploy/
 
       - name: Deploy to GitHub Pages
