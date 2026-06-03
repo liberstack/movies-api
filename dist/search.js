@@ -1,4 +1,4 @@
-import { openModal, closeModal } from "../core/modal.js";
+import { openModal } from "./modal.js";
 // ─── Constants ────────────────────────────────────────────
 const API_KEY = "trilogy";
 const BASE = "https://www.omdbapi.com/";
@@ -228,12 +228,6 @@ export function renderSearch(app) {
           <ul id="results"></ul>
         </div>
       </div>
-
-      <div id="details-section" class="details-panel hidden">
-        <div class="details-placeholder">Select a film to view details.</div>
-        <button id="close-details">&#x2715;</button>
-        <div id="movie-details"></div>
-      </div>
     </div>
   `;
     const searchInput = document.getElementById("search");
@@ -241,7 +235,6 @@ export function renderSearch(app) {
     const genreEl = document.getElementById("genre-filter");
     const countryEl = document.getElementById("country-filter");
     const btnSearch = document.getElementById("btn-search");
-    const closeBtn = document.getElementById("close-details");
     function doSearch() {
         const titleQ = searchInput.value.trim();
         const typeQ = typeEl.value;
@@ -258,8 +251,4 @@ export function renderSearch(app) {
     btnSearch.addEventListener("click", doSearch);
     searchInput.addEventListener("keydown", e => { if (e.key === "Enter")
         doSearch(); });
-    closeBtn.addEventListener("click", () => {
-        document.getElementById("details-section").classList.add("hidden");
-        closeModal();
-    });
 }

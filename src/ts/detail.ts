@@ -1,4 +1,4 @@
-import type { OMDbDetail } from "../core/types.js";
+import type { OMDbDetail } from "./types.js";
 
 // ─── Helper ───────────────────────────────────────────────
 

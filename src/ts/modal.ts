@@ -1,5 +1,5 @@
 import type { OMDbDetail } from "./types.js";
-import { buildDetailHTML } from "../ui/detail.js";
+import { buildDetailHTML } from "./detail.js";
 
 // ─── Internal ─────────────────────────────────────────────
 

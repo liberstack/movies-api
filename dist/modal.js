@@ -1,4 +1,4 @@
-import { buildDetailHTML } from "../ui/detail.js";
+import { buildDetailHTML } from "./detail.js";
 // ─── Internal ─────────────────────────────────────────────
 function onEscKey(e) {
     if (e.key === "Escape")
